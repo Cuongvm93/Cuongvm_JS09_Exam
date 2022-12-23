@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Feedback App</h1>
+    <div class="header-container">
+        <h2>Questions here</h2>
+        <ul class="score-bar">
+            <li><button class="score-bar-item">1</button></li>
+            <li><button class="score-bar-item">2</button></li>
+            <li><button class="score-bar-item">3</button></li>
+            <li><button class="score-bar-item">4</button></li>
+            <li><button class="score-bar-item">5</button></li>
+            <li><button class="score-bar-item">6</button></li>
+            <li><button class="score-bar-item">7</button></li>
+            <li><button class="score-bar-item">8</button></li>
+            <li><button class="score-bar-item">9</button></li>
+            <li><button class="score-bar-item">10</button></li>
+            
+        </ul>
+        <span><input type="text" class="input-feedback" placeholder="Write some fucking feedback"><button class="send-fb">Send</button></span>
+        <p class="alert"> Feedback atleast 10 characters</p>
+    </div>
+    <div class="feedback-container">
+        <div class="feedback-container_rating">
+            <p>3 reviews</p>
+            <p>Average rating:7</p>
+        </div>
+        <div class="feedback-container_body">
+            <div class="feedback-container_body_content">
+                <p>rất hay</p>
+                <span><i class="fa-solid fa-pen-to-square"></i>&nbsp<i class="fa-solid fa-square-xmark"></i></span>
+                <button class="feedback-container_body_content_score">6</button>
+            </div>
+            <div class="feedback-container_body_content">
+                <p>kgoong hay</p>
+                <span><i class="fa-solid fa-pen-to-square"></i>&nbsp<i class="fa-solid fa-square-xmark"></i></i></span>
+                <button class="feedback-container_body_content_score">6</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+</html>
