@@ -23,9 +23,83 @@ app.get("/api/v1/feedbacks",(req,res)=>{
     })
 })
 
-
-
-
+app.post("/api/v1/feedbacks",(req,res)=>{
+    fs.readFile("./dev-data/feedbacks.json","utf8",(err,data)=>{
+        if (err) {
+            res.status(500).json({
+                status:"fail",
+                message:err.message
+            })
+        }else{
+            data=JSON.parse(data)
+            data.answers.unshift(req.body)
+            fs.writeFile("./dev-data/feedbacks.json",JSON.stringify(data),(err)=>{
+                if (err) {
+                    res.status(500).json({
+                        status:"fail",
+                        message:err.message
+                    })
+                }else{
+                    res.status(200).json({
+                        Messs:"update thành công"
+                    })
+                }
+            })
+        }
+    })
+})
+app.put("/api/v1/feedbacks/:id",(req,res)=>{
+    fs.readFile("./dev-data/feedbacks.json","utf8",(err,data)=>{
+        if (err) {
+            res.status(500).json({
+                status:"fail",
+                message:err.message
+            })
+        }else{
+            data=JSON.parse(data)
+            let index=data.answers.findIndex((item)=>item.id==req.params.id)
+            data.answers[index]=req.body
+            fs.writeFile("./dev-data/feedbacks.json",JSON.stringify(data),(err)=>{
+                if (err) {      
+                    res.status(500).json({
+                        status:"fail",
+                        message:err.message
+                    })
+                }else{
+                    res.status(200).json({
+                        Messs:"update thành công"
+                    })
+                }
+            })
+        }
+    })
+})
+app.delete("/api/v1/feedbacks/:id",(req,res)=>{
+    fs.readFile("./dev-data/feedbacks.json","utf8",(err,data)=>{
+        if (err) {
+            res.status(500).json({
+                status:"fail",
+                message:err.message
+            })
+        }else{
+            data=JSON.parse(data)
+            let index=data.answers.findIndex((item)=>item.id==req.params.id)
+            data.answers.splice(index,1)
+            fs.writeFile("./dev-data/feedbacks.json",JSON.stringify(data),(err)=>{
+                if (err) {      
+                    res.status(500).json({
+                        status:"fail",
+                        message:err.message
+                    })
+                }else{
+                    res.status(200).json({
+                        Messs:"Xóa thành công"
+                    })
+                }
+            })
+        }
+    })
+})
 app.get("/",(req,res)=>{
     res.sendFile("index.html",{root:"./public"})
 })
