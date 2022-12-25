@@ -43,12 +43,9 @@ let render=function(params) {
         item.addEventListener("click",(e)=>{
             if (e.target.classList.contains("fa-pen-to-square")) {
                 method="put"
-                console.log(item.children[0].innerHTML);
-                console.log(item.children[2].innerHTML);
                 input.value= item.children[0].innerHTML
                 score.forEach(item=>item.classList.remove("active"))
                 score[item.children[2].innerHTML-1].classList.add("active")
-                console.log(item.id);
                 idAnswers=item.id
                 currentFeedback=item.children[0].innerHTML
                 scoreRate=item.children[2].innerHTML
