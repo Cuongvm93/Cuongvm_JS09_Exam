@@ -70,9 +70,10 @@ let render=function(params) {
                 
         })
     })
-   
+    // POST AND PUT
     send_btn.addEventListener("click",()=>{
-        if (method=="post") { //post feedback
+        if (method=="post") //post feedback
+        { 
             if (input.value!=""&&scoreRate!=0) {
                 fetch("http://localhost:3000/api/v1/feedbacks",{
                     method:"POST",
@@ -92,6 +93,7 @@ let render=function(params) {
                 })
             }
         }else{
+            //PUT FEEDBACK
             fetch(`http://localhost:3000/api/v1/feedbacks/${idAnswers}`,{
                 method:"PUT",
                 headers:{
@@ -114,5 +116,4 @@ let render=function(params) {
 })
 }
 render();
-// Post feedback
 
