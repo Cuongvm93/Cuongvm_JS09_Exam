@@ -32,7 +32,11 @@ app.post("/api/v1/feedbacks",(req,res)=>{
             })
         }else{
             data=JSON.parse(data)
-            data.answers.unshift(req.body)
+            if (data.answers==[]) {
+                data.answers.push(req.body)
+            }else{
+                data.answers.unshift(req.body)
+            }
             fs.writeFile("./dev-data/feedbacks.json",JSON.stringify(data),(err)=>{
                 if (err) {
                     res.status(500).json({

@@ -86,7 +86,7 @@ let render=function(params) {
                 .then(res=>res.json())
                 .then(()=>{
                     alert("add feedback Success")
-                    window.location.reload()
+                    render()
                 })
             }
         }else{
@@ -105,7 +105,7 @@ let render=function(params) {
             .then(res=>res.json())
             .then(()=>{
                 alert("update feedback Success")
-                window.location.reload()
+                render()
             })
         }
     })
